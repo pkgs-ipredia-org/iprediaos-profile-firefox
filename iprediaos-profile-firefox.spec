@@ -31,6 +31,11 @@ os=$(echo %{?dist} | sed "s:\.::g")
 sed -i "s:?os=:?os=$os:g" $RPM_BUILD_ROOT%{_sysconfdir}/skel/.mozilla/firefox/a.default/user.js
 
 
+%post
+# Remove legacy file
+rm -f /home/*/.mozilla/firefox/a.default/chrome/userContent.css >/dev/null 2>&1 || :
+
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
