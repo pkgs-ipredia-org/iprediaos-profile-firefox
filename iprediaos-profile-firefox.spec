@@ -1,5 +1,5 @@
 Name:		iprediaos-profile-firefox		
-Version:	1.1
+Version:	1.2
 Release:	1%{?dist}
 Summary:	Firefox profile for IprediaOS
 
@@ -12,7 +12,7 @@ BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 BuildArch:	noarch
 
 #BuildRequires:	
-Requires:	firefox
+Requires:	firefox >= 22.0-3
 
 %description
 Skeleton template for Firefox.
@@ -40,10 +40,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc
 %{_sysconfdir}/skel/.mozilla/firefox/a.default/user.js
 %{_sysconfdir}/skel/.mozilla/firefox/profiles.ini
-%{_sysconfdir}/skel/.mozilla/firefox/a.default/chrome/userContent.css
 
 
 %changelog
+* Sun Jan 18 2014 Mattias Ohlsson <mattias.ohlsson@inprose.com> - 1.2-1
+- Remove userContent.css
+
 * Tue May 8 2012 Mattias Ohlsson <mattias.ohlsson@inprose.com> - 1.1-1
 - Add userContent.css
 
